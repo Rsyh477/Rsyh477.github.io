@@ -152,6 +152,32 @@ footer p a {
   font-family: 'HantoriaSiganture';
 }
 
-/* button */
+/* contact Rounde */
+section .container-fluid.contact {
+  position: relative;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+}
+section .container-fluid.contact .container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+svg.ornamen-4 {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+#contact .container-fluid.contact {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: -3px -5px 10px black;
+}
 
 /* responsive */
