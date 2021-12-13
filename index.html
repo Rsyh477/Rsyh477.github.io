@@ -190,22 +190,34 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <form>
+        <form name="Contact-Form-Portofolio">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="name" class="form-label">Nama Lengkap</label>
+            <input type="name" class="form-control" id="name" aria-describedby="name" name="nama">
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="email" class="form-label">Alamat Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="pesan" class="form-label">Pesan</label>
+            <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
           </div>
 
 
-          <button type="submit" class="btn btn-primary" style="border-radius: 25px;">Submit</button>
+          <button type="submit" class="btn btn-primary btn-kirim" style="border-radius: 25px;">Kirim</button>
+          <button class="btn btn-primary btn-loading d-none" style="border-radius: 25px;" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+          <div class="alert alert-light alert-dismissible fade show mt-2 d-none my-alert" style="border-radius: 25px;
+          opacity: 0.8;
+          height: 5rem;
+          " role="alert">
+            <strong>Terima Kasih <i class="bi bi-emoji-wink"></i></strong> <br>Pesan Anda sudah diterima.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
         </form>
       </div>
       <div class="col-md-6 sosmed ">
@@ -231,9 +243,7 @@
 <!-- end Contact Form -->
 
 <!-- footer -->
-<footer class="text-center" style="background-color: rgba(0, 0, 0, 0.5);">
-  <p>Created with <i class="bi bi-peace-fill"></i> by<a href="https://www.instagram.com/prgsbntr/"> Ryansyah</a></p>
-</footer>
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -246,5 +256,39 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxZd-sheY9M6RmxYUEXt3KNfO-PPnZgHTfywzZyLXEXV7bVCeUpw_rs_IiBmmWb6C-ECg/exec'
+      const form = document.forms['Contact-Form-Portofolio']
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      const myAlert = document.querySelector('.my-alert');
+
+      
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        // tombol kirim di klik 
+        // hilangkan tombol kirim, munculkan tombol loading
+        btnKirim.classList.toggle('d-none');
+        btnLoading.classList.toggle('d-none');
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+                // hilangkan tombol loading, munculkan tombol kirm
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            myAlert.classList.toggle('d-none');
+            form.reset();
+            
+            console.log('Success!', response);
+
+          
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
+
+
   </body>
 </html>

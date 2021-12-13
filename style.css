@@ -9,7 +9,7 @@ body {
   font-size: 18px;
   /* overflow-x: hidden; */
   color: white;
-  height: 2000px;
+  /* height: 2000px; */
 }
 
 @font-face {
@@ -167,6 +167,7 @@ section .container-fluid.contact .container {
 }
 
 svg.ornamen-4 {
+  display: flex;
   position: absolute;
   bottom: 0;
   z-index: 1;
@@ -179,5 +180,4 @@ svg.ornamen-4 {
   border-bottom-right-radius: 0;
   box-shadow: -3px -5px 10px black;
 }
-
-/* responsive */
+/* footer */
