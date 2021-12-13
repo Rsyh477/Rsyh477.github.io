@@ -28,6 +28,7 @@ body {
   border-bottom-right-radius: 25px;
   box-shadow: 3px 3px 10px black;
 }
+
 /* Jumbotron */
 .container-fluid {
   position: relative;
@@ -45,7 +46,7 @@ svg.ornamen-1 {
 }
 .profile {
   position: absolute;
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 
 .profile img {
@@ -96,6 +97,12 @@ svg.ornamen-2 {
 #projects .card .card-body {
   font-size: 1em;
 }
+#projects {
+  padding-top: 3rem;
+}
+#contact {
+  padding-top: 3rem;
+}
 /* Carousel */
 #carouselExampleCaptions {
   border-radius: 15px;
@@ -131,4 +138,20 @@ svg.ornamen-2 {
   font-size: 1em;
   letter-spacing: 0.5px;
 }
+
+footer p {
+  color: white;
+  letter-spacing: 1px;
+  padding-bottom: 2rem;
+}
+
+footer p a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'HantoriaSiganture';
+}
+
+/* button */
+
 /* responsive */
